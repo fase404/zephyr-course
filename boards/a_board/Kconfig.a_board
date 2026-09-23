@@ -1,0 +1,2 @@
+config BOARD_A_BOARD
+	select SOC_STM32H753XX
