@@ -1,0 +1,3 @@
+description: Our custom led driver binding
+compatible: "our,leddriver"
+include: base.yaml

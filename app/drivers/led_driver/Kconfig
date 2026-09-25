@@ -1,0 +1,7 @@
+config OUR_LEDDRIVER
+    bool "Our Custom LED Driver"
+    default n
+    depends on DT_HAS_OUR_LEDDRIVER_ENABLED
+    select GPIO
+    help
+        Enable the custom LED driver

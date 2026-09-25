@@ -2,4 +2,9 @@
     aliases {
 	app-led = &green_led;
     };
+
+    leddriver0: leddriver {
+        compatible = "our,leddriver";
+        status = "okay";
+    };
 };
