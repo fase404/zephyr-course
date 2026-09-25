@@ -2,6 +2,7 @@
 #include <zephyr/drivers/sensor.h>
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
+#include "task2.h"
 
 #define SLEEP_TIME_MS 1000
 
@@ -23,6 +24,8 @@ namespace{
 
         // ret = sensor_channel_get(driver, SENSOR_CHAN_AMBIENT_TEMP, &val);
         // LOG_INF("Channel ret %d", ret);
+
+        leddriver_set_count(driver, 5);
     }
 }
 
