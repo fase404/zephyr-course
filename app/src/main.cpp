@@ -32,7 +32,7 @@ namespace{
 
 int main(void)
 {
-    test();
+    // test();
     bool led_state = true;
 
     if (!gpio_is_ready_dt(&led)) return 0;
@@ -43,7 +43,7 @@ int main(void)
         if (gpio_pin_toggle_dt(&led) < 0) return 0;
 
         led_state = !led_state;
-        LOG_INF("LED state: %s", led_state ? "ON" : "OFF");
+        // LOG_INF("LED state: %s", led_state ? "ON" : "OFF");
         k_msleep(CONFIG_APP_HEARTBEAT_PERIOD_MS);
     }
     return 0;
