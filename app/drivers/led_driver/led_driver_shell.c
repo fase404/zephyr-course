@@ -42,9 +42,9 @@ static int cmd_info(const struct shell* sh, int argc, char** argv){
         return -EFAULT;
     }
     if(device_is_ready(dev)){
-        shell_info(sh, "Device %s is ready", argv[1]);
+        shell_info(sh, "Device %s is ready", dev->name);
     }else{
-        shell_error(sh, "Device %s is not ready", argv[1]);
+        shell_error(sh, "Device %s is not ready", dev->name);
         return -EFAULT;
     }
     return 0;
