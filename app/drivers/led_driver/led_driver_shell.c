@@ -3,6 +3,9 @@
 #include <zephyr/drivers/sensor.h>
 #include "task2.h"
 
+#define MIN_COUNT  0
+#define MAX_COUNT  200
+
 static int cmd_fetch(const struct shell* sh, int argc, char** argv){
     const struct device *dev = shell_device_get_binding(argv[1]);
     if(!dev){
@@ -56,8 +59,13 @@ static int cmd_count(const struct shell* sh, int argc, char** argv){
     long parsed_val = strtol(argv[2], &end, 10);
 
     if (end == argv[2] || *end != '\0') {
-        shell_error(sh, "Error: '%s' is not a valid int.\n", argv[2]);
+        shell_error(sh, "Error: '%s' is not a valid int.", argv[2]);
         return -EFAULT;
+    }
+
+    if (parsed_val < MIN_COUNT || parsed_val > MAX_COUNT) {
+        shell_error(sh, "Count %ld out of range.", parsed_val);
+        return -EINVAL;
     }
 
     int count_val = (int)parsed_val;
